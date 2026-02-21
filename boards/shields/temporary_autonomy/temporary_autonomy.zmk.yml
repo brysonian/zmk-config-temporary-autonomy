@@ -1,0 +1,9 @@
+file_format: "1"
+id: eloquent_misdirection
+name: Eloquent Misdirection
+type: shield
+url: https://github.com/brysonian/zmk-config-eloquent-misdirection/
+requires: [adafruit_qt_py_rp2040,stemma-qt-connector]
+features:
+  - keys
+  - handwired
