@@ -85,4 +85,5 @@
                               &trans          &kp RET                    &td_SPACE_TAB                &trans
       >;
     };
+  };
 };
