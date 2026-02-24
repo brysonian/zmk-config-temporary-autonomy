@@ -3,7 +3,7 @@ id: taz
 name: Temporary Autonomy
 type: shield
 url: https://github.com/brysonian/zmk-config-temporary-autonomy/
-requires: [adafruit_qt_py_rp2040,stemma-qt-connector]
+requires: [waveshare_rp2040_zero]
 features:
   - keys
   - handwired

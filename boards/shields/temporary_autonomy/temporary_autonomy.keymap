@@ -1,18 +1,92 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
+#define DEFAULT 0
+#define MOVE   1
+#define NUM   2
+
 / {
+    combos {
+        compatible = "zmk,combos";
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <0 1>;
+            bindings = <&kp ESC>;
+        };
+    };
+
+    behaviors {
+        td_Q_GRAVE: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp Q>, <&kp GRAVE>;
+        };
+
+        td_SPACE_TAB: tap_dance_1 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp SPACE>, <&kp TAB>;
+        };
+
+        td_MINUS_EQUAL: tap_dance_2 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp MINUS>, <&kp EQUAL>;
+        };
+
+        td_LBKT_COMMA: tap_dance_3 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LBKT>, <&kp COMMA>;
+        };
+
+        td_RBKT_DOT: tap_dance_4 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp RBKT>, <&kp DOT>;
+        };
+
+
+&mt RBKT DOT
+
+    };
+
   keymap {
     compatible = "zmk,keymap";
 
     default_layer {
       bindings = <
-        &mt ESC N1    &kp N2     &kp N3      &kp N4          &kp N5       &kp N6           &kp N7         &kp N8           &kp N9       &mt N0 BSPC
-        &kp Q         &kp W      &kp E       &kp R           &kp T        &kp Y            &kp U          &kp I            &kp O        &kp P
-        &kp A         &kp S      &kp D       &kp F           &kp G        &kp H            &kp J          &kp K            &kp L        &mt SEMI SQT
-        &kp Z         &kp X      &kp C       &kp V           &kp B        &kp N            &kp M          &mt LBKT COMMA   &mt RBKT DOT &kp FSLH
-        &kp LCTL      &kp LALT   &kp LCMD          &kp LSHIFT                    &kp SPACE                &kp RET          &kp LARW     &kp RARW
+        &td_Q_GRAVE   &kp W        &kp E       &kp R           &kp T        &kp Y            &kp U          &kp I            &kp O        &kp P           &kp BSPC
+        &kp A         &mt LCTRL S  &mt LALT D  &mt LGUI F      &kp G        &kp H            &mt RGUI J     &mt RALT K       &mt RCTRL L  &mt SEMI SQT
+        &mt LSHIFT Z  &kp X        &kp C       &kp V           &kp B        &kp N            &kp M          &td_LBKT_COMMA   &td_RBKT_DOT &mt RSHIFT FSLH
+                              &tog MOVE          &kp RET                    &td_SPACE_TAB                &tog NUM
       >;
     };
-  };
+
+    move_layer {
+      label = "Move";
+      bindings = <
+        &td_Q_GRAVE   &kp W        &kp E       &kp R           &kp T        &kp Y            &kp U          &kp I            &kp O        &kp P           &kp BSPC
+        &kp A         &mt LCTRL S  &mt LALT D  &mt LGUI F      &kp G        &kp H            &mt RGUI J     &mt RALT K       &mt RCTRL L  &mt SEMI SQT
+        &mt LSHIFT Z  &kp X        &kp C       &kp V           &kp B        &kp N            &kp M          &mt LBKT COMMA   &mt RBKT DOT &mt RSHIFT FSLH
+                              &trans          &kp RET                    &td_SPACE_TAB                &trans
+      >;
+    };
+
+
+    num_layer {
+      label = "Numbers";
+      bindings = <
+        &kp N1   &kp N2        &kp N3       &kp 4           &kp N5        &kp N6            &kp N7          &kp N8            &kp N9        &kp N0       &td_MINUS_EQUAL
+
+        &kp A         &mt LCTRL S  &mt LALT D  &mt LGUI F      &kp G        &kp H            &mt RGUI J     &mt RALT K       &mt RCTRL L  &mt SEMI SQT
+        &kp LSHIFT  &kp X        &kp C       &kp V           &kp B        &kp N            &kp M          &mt LBKT COMMA   &mt RBKT DOT &kp RSHIFT
+                              &trans          &kp RET                    &td_SPACE_TAB                &trans
+      >;
+    };
 };
