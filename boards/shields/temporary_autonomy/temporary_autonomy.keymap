@@ -50,10 +50,6 @@
             tapping-term-ms = <200>;
             bindings = <&kp RBKT>, <&kp DOT>;
         };
-
-
-&mt RBKT DOT
-
     };
 
   keymap {
