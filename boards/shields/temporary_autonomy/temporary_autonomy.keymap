@@ -76,7 +76,7 @@
         &td_q_grave   &kp W        &kp E       &kp R           &kp T        &kp Y            &kp U          &kp I            &kp O        &kp P           &kp BSPC
         &kp A         &mt LCTRL S  &mt LALT D  &mt LGUI F      &kp G        &kp H            &mt RGUI J     &mt RALT K       &mt RCTRL L  &mt SEMI SQT
         &mt LSHIFT Z  &kp X        &kp C       &kp V           &kp B        &kp N            &kp M          &td_lbkt_comma   &td_rbkt_dot &mt RSHIFT FSLH
-                      &td_move                 &kp RET2                      &td_space_tab                   &td_num
+                      &td_move                 &kp A                      &td_space_tab                   &td_num
       >;
     };
 
