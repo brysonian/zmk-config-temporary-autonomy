@@ -10,3 +10,5 @@
 include:
   - board: adafruit_qt_py_rp2040
     shield: temporary_autonomy
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
