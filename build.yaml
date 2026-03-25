@@ -8,7 +8,7 @@
 #
 ---
 include:
-  - board: waveshare_rp2040_zero
+  - board: rp2040_zero
     shield: temporary_autonomy
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
