@@ -6,6 +6,7 @@
 # `artifact-name` to assign a name to distinguish build outputs from each other:
 #
 #
+# adafruit_qt_py_rp2040
 ---
 include:
   - board: rp2040_zero
